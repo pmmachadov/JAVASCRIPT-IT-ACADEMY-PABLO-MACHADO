@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+      body { margin: 0 auto; width:80%; font-family: 'Segoe UI', 'Open sans', Geneva, Verdana, sans-serif;}
+      #container {padding: 0.5em 2em 0.5em 2em;}
+      .pregunta {color:rgba(24, 24, 122, 0.876);}
+      .respuesta {color:rgb(161, 13, 13);}
+      .noSpace {margin:0;}
+   </style>
+   <title>Examen FDLP</title>
+</head>
+<body>
+   <div id="container">
+      <h1>Fonaments de la Programació. Examen de JavaScript. </h1>
+      <h2>Estudiant: <em>Andrés Valle Sierra</em></h2>
+      <hr>
+      <div class="pregunta">
+         <p>Crear un archivo <strong>main.js</strong> y enlazarlo a este .html.<br>
+            Crear las funciones necesarias y llamarlas desde los botones, para dar solución a los siguientes planteamientos:</strong></p>
+         <h3>Pregunta 1</h3>
+         <p>Crear dos arrays llamados <strong>array1</strong> y <strong>array2</strong>. Crea un bucle que incluya al mismo tiempo (en la misma vuelta) en el <strong>array1</strong> los números del 100 al 5 en intervalos de 5, y en el <strong>array2</strong> los múltiplos de 3 de la serie anterior. Una vez finalizado el bucle, ordenar los elementos del <strong>array2</strong> de forma ascendente y mostrar su contenido en los párrafos con el <strong>id</strong> equivalente del presente .html.< /p>
+         <p>La salida deberá ser la siguiente:</p>
+            <ul>
+               <li>Array1: 100,95,90,85,80,75,70,65,60,55,50,45,40,35,30,25,20,15,10,5</li>
+               <li>Array2: 15,30,45,60,75,90</li>
+            </ul>
+      </div>
+      <div class="respuesta">
+         <h3>Solución pregunta 1</h3>
+         <p><button onclick="splitNumbers()">Resultado bucle</button></p>
+         <ol>
+            <li>Serie de 100 a 5 de 5 en 5. Array1: <span id="array1"> </span></li>
+            <li>Múltiples de 3 en el array 1. Array2: <span id="array2"> </span></li>
+         </ol>
+      </div>
+      <div class="pregunta">
+         <p>Adjunto encontrarás el archivo <strong>datos.js</strong>, que contiene un array de objetos llamado <strong>trabajadores</strong>. Realiza las siguientes operaciones mediante funciones (puntos b, c y e) enlazándola a los botones pertinentes:</p>
+         <h3>Pregunta 2</h3>
+         <ol style="list-style-type:lower-alpha;">
+            <li>Enlaza el archivo a este .html</li>
+            <li>Busca al empleado <strong>'Pep Vila'</strong> guardando el resultado de la búsqueda en un objeto llamado <strong>persona</strong>. Muestra los atributos del objeto persona en la siguiente lista.</li>
+            <li>Extrae en un segundo array (da a ese array el nombre que quieras) a los trabajadores con disponibilidad de traslado. Muestra el resultado de esta búsqueda en la consola.</li>
+            <li>Expresa el objeto del array trabajadores en forma de clase. Guarda esta clase en un archivo independiente y enlázalo al .html.</li>
+            <li>Crea un nuevo trabajador (directamente desde la función, sin pedir los datos) utilizando la clase recién creada. Muestra los atributos del nuevo trabajador en la siguiente lista.</li>
+         </ol>
+      </div>
+      <div class="respuesta">
+         <h3>Solución pregunta 2</h3>
+         <p><button onclick="searchingPep()">2b. Dades del treballador</button></p>
+         <!-- Llista pregunta 2b -->
+         <ul> 
+            <li class="noSpace">Nom: <span id="nom1"> </span></li>
+            <li class="noSpace">Cognom: <span id="cognoms1"> </span></li>
+            <li class="noSpace">Càrrec: <span id="carrec1"> </span></li>
+            <li class="noSpace">Trasllat: <span id="trasllat1"> </span></li>
+         </ul>
+         <p><button onclick="transferAvailable()">2c. Treballadors amb disponibilitat de trasllat (veure consola)</button></p>
+         <p><button onclick="newEmployee()">2e. Treballador creat mitjançant classe</button></p>
+         <ul>
+            <li class="noSpace">Nom: <span id="nom2"> </span></li>
+            <li class="noSpace">Cognom: <span id="cognoms2"> </span></li>
+            <li class="noSpace">Càrrec: <span id="carrec2"> </span></li>
+            <li class="noSpace">Trasllat: <span id="trasllat2"> </span></li>
+         </ul>
+      </div>
+   </div>
+   
+   <script src="./js/Trabajador.js"></script>
+   <script src="./js/dades.js"></script>
+   <script src="./js/main.js"></script>
+</body>
+</html>
