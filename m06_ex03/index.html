@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>m06_ex03</title>
+</head>
+<body>
+    <!-- Realiza un programa con 5 funciones y un array vacío (Global) llamado tiempo .
+El HTML debe tener cuatro botones que llamen a una única función menu que envíe para parámetro la función que se desea ejecutar. 
+Ejemplo:
+<button onclick='menu(1)'>Registrar fecha y hora</button>
+La función menu se encargará de pasar los parámetros necesarios al resto de funciones.
+
+Crea una función que añada al array tiempo , fecha y hora actuales.
+Crea una función que reciba un valor y un array de números como parámetro.
+Esta función devolverá el índice del array donde se encuentra el valor.
+Si el valor no se encuentra, se devolverá -1.
+
+Crea una función que reciba una frase como parámetro y la devuelva en minúsculas sin espacios en blanco, sin acentos y sin signos de puntuación.
+Ejemplo, si la frase es:
+- En Cornellà, Tània y Aina cortan roca.
+La función tendrá que volver:
+acornellataniayinatallenroca
+
+Crea una función que reciba un array y un string como parámetro
+y devuelva otro array con aquellos elementos del array recibido que contengan el texto enviado.
+Ejemplo: Se recibe el siguiente array:
+
+asignaturas = [
+'Historia universal',
+'Historia de España',
+'Geografía',
+'Historia de la lengua catalana',
+'Antropología',
+'Inglés']
+
+y la palabra 'Historia'
+
+La función tendrá que devolver el siguiente array:
+[
+'Historia universal',
+'Historia de 'España',
+'Historia de la lengua catalana', ] -->
+
+    <button onclick='menu(1)'>Registrar fecha y hora</button>
+    <button onclick='menu(2)'>Buscar valor en array</button>
+    <button onclick='menu(3)'>Convertir frase</button>
+    <button onclick='menu(4)'>Buscar texto en array</button>
+
+    <script>
+        const tiempo = [];
+        function menu(opcion){
+            switch(opcion){
+                case 1:
+                    fechaHora();
+                    break;
+                case 2:
+                    const valor = prompt("Introduce un valor");
+                    const array = [1,2,3,4,5,6,7,8,9,10];
+                    const indice = buscarValor(valor, array);
+                    alert(indice);
+                    break;
+                case 3:
+                    const frase = prompt("Introduce una frase");
+                    const fraseConvertida = convertirFrase(frase);
+                    alert(fraseConvertida);
+                    break;
+                case 4:
+                    array = ['Historia universal', 'Historia de España', 'Geografía', 'Historia de la lengua catalana', 'Antropología', 'Inglés'];
+                    const texto = prompt("Introduce un texto");
+                    const arrayResultado = buscarTexto(texto, array);
+                    alert(arrayResultado);
+                    break;
+            }
+        }
+        function fechaHora(){
+            const fecha = new Date();
+            const dia = fecha.getDate();
+            const mes = fecha.getMonth() + 1;
+            const anyo = fecha.getFullYear();
+            const hora = fecha.getHours();
+            const minutos = fecha.getMinutes();
+            const segundos = fecha.getSeconds();
+            const fechaHora = dia + "/" + mes + "/" + anyo + " " + hora + ":" + minutos + ":" + segundos;
+            tiempo.push(fechaHora);
+            alert(tiempo);
+        }
+        function buscarValor(valor, array){
+            const indice = array.indexOf(valor);
+            return indice;
+        }
+        function convertirFrase(frase){
+            const fraseConvertida = frase.toLowerCase();
+            fraseConvertida = fraseConvertida.replace(/ /g, ""); // Elimina espacios en blanco
+            fraseConvertida = fraseConvertida.replace(/á/g, "a"); // Elimina acentos
+            fraseConvertida = fraseConvertida.replace(/é/g, "e"); // Elimina acentos
+            fraseConvertida = fraseConvertida.replace(/í/g, "i"); // Elimina acentos
+            fraseConvertida = fraseConvertida.replace(/ó/g, "o"); // Elimina acentos
+            fraseConvertida = fraseConvertida.replace(/ú/g, "u"); // Elimina acentos
+            fraseConvertida = fraseConvertida.replace(/ü/g, "u"); // Elimina acentos
+            fraseConvertida = fraseConvertida.replace(/ñ/g, "n"); // Elimina acentos
+            fraseConvertida = fraseConvertida.replace(/,/g, ""); // Elimina signos de puntuación
+            fraseConvertida = fraseConvertida.replace(/\./g, ""); // Elimina signos de puntuación
+            fraseConvertida = fraseConvertida.replace(/;/g, ""); // Elimina signos de puntuación
+            fraseConvertida = fraseConvertida.replace(/:/g, ""); // Elimina signos de puntuación
+            fraseConvertida = fraseConvertida.replace(/¡/g, ""); // Elimina signos de puntuación
+            fraseConvertida = fraseConvertida.replace(/¿/g, ""); // Elimina signos de puntuación
+            fraseConvertida = fraseConvertida.replace(/\?/g, ""); // Elimina signos de puntuación
+            fraseConvertida = fraseConvertida.replace(/!/g, ""); // Elimina signos de puntuación
+            return fraseConvertida;
+
+        }
+
+        function buscarTexto(texto, array){
+            const arrayResultado = [];
+            for(const i = 0; i < array.length; i++){
+                if(array[i].indexOf(texto) != -1){
+                    arrayResultado.push(array[i]);
+                }
+            }
+            return arrayResultado;
+        }
+    </script>
+</body>
+</html>
